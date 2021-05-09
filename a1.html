@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #a1{
+      width: 100px;
+      height: 100px;
+      color: rgb(7, 85, 241);
+      background-color: #add;
+    }
+  </style>
+  <script crossorigin="anonymous" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <button>GET</button>
+    <button>POST</button>
+    <button>AJAX</button>
+  <script>
+    const btns = document.querySelectorAll('button');
+    axios.defaults.baseURL = 'http://47.100.42.144:3389';
+
+    btns[1].onclick = function(){
+      axios.post('/user/login', {
+        "username": "lcf3",
+        "password": "333"
+     })
+    .then(function (response) {
+      console.log(response.data);
+      // console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    }
+  </script>
+</body>
+</html>
